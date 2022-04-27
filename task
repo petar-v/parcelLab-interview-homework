@@ -1,0 +1,39 @@
+TASK:
+
+The task has to be conducted as a homework and presented during the 3rd interview.
+
+We’re going to offer everybody the chance for a third interview, provided they pass the hiring manager one.
+
+A ‘weak’ project can be balanced by great thinking and strong presentation skills.
+
+Documentation needed: —> https://how.parcellab.works/docs/integration-quick-start/data-model —> https://how.parcellab.works/docs/integration-quick-start/creating-a-new-tracking
+
+Scope:
+
+We’re simulating the whole parcelLab data transmission experience from the client down to our data ingestion. The candidate will have to simulate being a client by sending themselves a fake payload. This payload will have to be received on an endpoint created by the candidate, who will also have to do some manipulation to the data received and then fake sending it to our endpoint to ingest it.
+
+Bonus points if the candidate works both on an API and the File-based data transmission (by taking the info from a file and not from a posted request).
+
+Scenario:
+
+    There’s an endpoint built in either Python or Javascript
+    Either a file or an API call is sent to such an endpoint (depending on the approach, or both if you’re going for the bonus points)
+    This request/file is acknowledged
+    The data received in point 3 is then analysed and manipulated to make it match the parcelLab data model
+    A new payload is built from the manipulation done in point 4 and then fake-sent to the parcelLab API endpoint (faking it as you won’t have dedicated credentials).
+
+Homework:
+
+    Build an API endpoint in either Python or Javascript
+    Send a request to it with a payload
+    Consume the payload, convert it to a valid tracking in our data-model and fake posting it to our endpoint
+
+Live during the third interview:
+
+    Push the API call from your preferred method
+    Show the payload being received and ingested
+    Talk through the technical stack decision process (security, performance, libraries, functions etc.)
+
+Let us know if you might have other questions!!! 😊 I hope I finally made some clarity with this email. 😊
+
+The interviews for this task will be conducted next week, so please share your availability and I will schedule accordingly.
