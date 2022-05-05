@@ -1,12 +1,20 @@
 {
-  "courier": "ups",
-  "tracking_number": "1Z00PL161200000001",
-  "orderNo": "ORD-123",
-  "recipient": "parcelLab Gmbh, Julian Krenge",
-  "recipient_notification": "Julian",
-  "street": "Kapellenweg 6",
-  "zip_code": "81371",
-  "city": "München",
+  "courier": "dhl-germany",
+  "tracking_number": "00340016120000000001",
   "destination_country_iso3": "DEU",
-  "email": "hello@example.org"
+  "zip_code": "80336",
+  "city": "München",
+  "street": "Schillerstr. 23a",
+  "recipient": "Julian Krenge",
+  "recipient_notification": "Lieber Julian",
+  "email": "support@parcellab.com",
+  "articles": [
+    {
+      "articleNo": "ART-123",
+      "articleName": "Branded packing tape",
+      "articleImage": "https://parcellab.com/products/images/branded-packing-tape.jpg",
+      "articleUrl": "https://parcellab.com/products/branded-packing-tape",
+      "quantity": 4
+    }
+  ]
 }
