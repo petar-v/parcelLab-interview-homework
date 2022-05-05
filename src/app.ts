@@ -1,7 +1,7 @@
 import express from "express";
 
 import ParcelLabApi from "./parcelLab/parcelLabApi";
-// import { parsePayload } from "./ownApi/tracking";
+import { parsePayload } from "./ownApi/tracking";
 
 const app = express();
 
@@ -22,19 +22,31 @@ app.get("/", (_, res) => {
   }
 });
 
-app.get("/track", async (_, res) => {
+app.get("/track", async (req, res) => {
   if (API === null) {
     res.status(500);
     res.send("The API is not available.\n");
     return;
   }
+
+  const query = req.query.query as string; // in the form: dhl|tackingNumber123|3000zip|DE
+  if (!query) {
+    res.status(400);
+    res.send(`A query parameter is required`);
+    return;
+  }
+
+  let payload = null;
   try {
-    const track = await API.createNewTracking({
-      courier: "dhl",
-      trackingNumber: "123",
-      zipCode: "3000",
-      destinationCountryIso3: "DE",
-    });
+    payload = parsePayload(query);
+  } catch (err) {
+    res.status(400);
+    res.send(`There has been an error with this request: ${err}`);
+    return;
+  }
+
+  try {
+    const track = await API.createNewTracking(payload);
     res.send(track);
   } catch (e) {
     res.status(400);
