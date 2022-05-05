@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import Tracking, { trackingToJson } from "./types/tracking";
 
 const validateUser = (user: number) => user && !isNaN(user) && user > 0;
@@ -29,18 +31,25 @@ class ParcelLabApi {
     }
   }
   async createNewTracking(tracking: Tracking) {
-    const res = await fetch(`${this.endpoint}/track`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        user: this.user.toString(),
-        token: this.token.toString(),
-      },
-      body: trackingToJson(tracking),
-    });
+    try {
+      const resp = await axios.post(
+        `${this.endpoint}/track`,
+        trackingToJson(tracking),
+        {
+          headers: {
+            "Content-Type": "application/json",
+            user: this.user.toString(),
+            token: this.token.toString(),
+          },
+        }
+      );
 
-    if (res.status !== 200) {
-      throw new Error("failed to create tracking");
+      if (resp.status !== 200) {
+        throw new Error("failed to create tracking");
+      }
+      return resp;
+    } catch (e) {
+      throw new Error(`Failed to fetch; ${e}`);
     }
   }
 }
