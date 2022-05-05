@@ -1,0 +1,12 @@
+{
+  "courier": "ups",
+  "tracking_number": "1Z00PL161200000001",
+  "orderNo": "ORD-123",
+  "recipient": "parcelLab Gmbh, Julian Krenge",
+  "recipient_notification": "Julian",
+  "street": "Kapellenweg 6",
+  "zip_code": "81371",
+  "city": "München",
+  "destination_country_iso3": "DEU",
+  "email": "hello@example.org"
+}
