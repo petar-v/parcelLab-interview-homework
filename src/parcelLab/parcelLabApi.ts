@@ -30,7 +30,7 @@ class ParcelLabApi {
       throw new Error("The endpoint provided is not valid");
     }
   }
-  async createNewTracking(tracking: Tracking) {
+  async createNewTracking(tracking: Tracking): Promise<string> {
     try {
       const resp = await axios.post(
         `${this.endpoint}/track`,
@@ -47,7 +47,7 @@ class ParcelLabApi {
       if (resp.status !== 200) {
         throw new Error("failed to create tracking");
       }
-      return resp;
+      return resp.data;
     } catch (e) {
       throw new Error(`Failed to fetch; ${e}`);
     }
